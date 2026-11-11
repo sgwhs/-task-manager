@@ -1,0 +1,12 @@
+import { IconCheck, IconAlert } from './Icons';
+
+export default function Toast({ toast }) {
+  if (!toast) return null;
+  const isError = toast.type === 'error';
+  return (
+    <div className={`toast ${isError ? 'toast-error' : 'toast-success'}`} role="status" aria-live="polite">
+      <span className="toast-icon">{isError ? <IconAlert /> : <IconCheck />}</span>
+      <span>{toast.message}</span>
+    </div>
+  );
+}
